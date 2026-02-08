@@ -3,298 +3,214 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Yogesh L | Data Science Portfolio</title>
 
-<!-- Tailwind -->
+<title>Yogesh L | Data Analyst Portfolio</title>
+<meta name="description" content="Yogesh L - MCA Data Science Student | Data Analyst | Python | Machine Learning">
+<meta name="keywords" content="Yogesh L, Data Analyst, MCA Data Science, Python, Portfolio">
+<meta name="author" content="Yogesh L">
+
 <script src="https://cdn.tailwindcss.com"></script>
-
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-
-<!-- Icons -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 
 <style>
-body{
-font-family:Inter,sans-serif;
-overflow-x:hidden;
-background:linear-gradient(-45deg,#020617,#083344,#0e7490,#06b6d4,#083344,#020617);
+body{font-family:Inter, sans-serif;overflow-x:hidden;}
+#particle-canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;}
+.gradient-animated{
+background:linear-gradient(-45deg,#020617,#020617,#0f172a,#1e3a8a,#312e81,#020617);
 background-size:300% 300%;
-animation:bgMove 18s ease infinite;
-color:#e5e7eb;
+animation:gradientMove 18s ease infinite;
 }
-
-@keyframes bgMove{
-0%{background-position:0% 50%}
-50%{background-position:100% 50%}
-100%{background-position:0% 50%}
+@keyframes gradientMove{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
 }
-
-/* Particle canvas */
-#particles{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-z-index:-1;
-}
-
-/* Glass card */
-.glass{
-background:rgba(255,255,255,0.05);
-backdrop-filter:blur(15px);
-border:1px solid rgba(6,182,212,0.25);
-border-radius:20px;
-transition:0.4s;
-}
-.glass:hover{
-transform:translateY(-10px);
-box-shadow:0 20px 40px rgba(6,182,212,0.35);
-}
-
-/* Fade animation */
-.fade{
-opacity:0;
-transform:translateY(40px);
-transition:1s;
-}
-.fade.show{
-opacity:1;
-transform:translateY(0);
-}
-
-/* Skill bar */
-.skill-bar{
-height:8px;
-background:rgba(255,255,255,0.1);
-border-radius:10px;
-overflow:hidden;
-}
-.skill-fill{
-height:100%;
-background:linear-gradient(90deg,#06b6d4,#3b82f6);
-transform-origin:left;
-transform:scaleX(0);
-transition:1.5s;
-}
-
-/* Profile glow */
-.profile{
-box-shadow:0 0 50px rgba(6,182,212,0.8);
-transition:0.4s;
-}
-.profile:hover{
-transform:scale(1.06);
-}
+.fade-in{opacity:0;transform:translateY(30px);transition:.8s;}
+.fade-in.visible{opacity:1;transform:translateY(0);}
+.profile-glow{box-shadow:0 0 30px rgba(59,130,246,.4);}
 </style>
 </head>
 
-<body>
+<body class="text-gray-100 gradient-animated">
 
-<canvas id="particles"></canvas>
+<canvas id="particle-canvas"></canvas>
 
-<!-- NAVBAR -->
-<nav class="fixed w-full bg-black/40 backdrop-blur-lg border-b border-cyan-500/20 z-50">
+<!-- NAV -->
+<nav class="fixed top-0 w-full bg-slate-900/80 backdrop-blur-lg z-50 border-b border-blue-500/20">
 <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-<h1 class="text-2xl font-bold text-cyan-400">Yogesh L</h1>
+<div class="text-2xl font-bold text-blue-400">Yogesh L</div>
 <div class="hidden md:flex space-x-8">
 <a href="#home">Home</a>
 <a href="#about">About</a>
 <a href="#skills">Skills</a>
 <a href="#projects">Projects</a>
-<a href="#experience">Experience</a>
 <a href="#contact">Contact</a>
 </div>
+<button id="menu-btn" class="md:hidden"><i class="fas fa-bars"></i></button>
+</div>
+<div id="mobile-menu" class="hidden bg-slate-900 md:hidden">
+<a href="#home" class="block p-3">Home</a>
+<a href="#about" class="block p-3">About</a>
+<a href="#skills" class="block p-3">Skills</a>
+<a href="#projects" class="block p-3">Projects</a>
+<a href="#contact" class="block p-3">Contact</a>
 </div>
 </nav>
 
 <!-- HERO -->
-<section id="home" class="min-h-screen flex items-center justify-center text-center pt-20 px-6">
-<div class="max-w-4xl fade">
+<section id="home" class="min-h-screen flex items-center justify-center text-center px-6">
+<div class="max-w-4xl">
 
-<div class="mb-8">
-<div class="w-44 h-44 mx-auto rounded-full p-1 bg-gradient-to-r from-cyan-400 to-blue-500 profile">
-<img src="me.jpeg" class="w-full h-full rounded-full object-cover">
+<div class="mb-6">
+<div class="w-40 h-40 mx-auto rounded-full p-1 bg-gradient-to-r from-blue-400 to-purple-500 profile-glow">
+<img src="me.jpeg" class="rounded-full w-full h-full object-cover">
 </div>
 </div>
 
-<h1 class="text-5xl md:text-7xl font-bold mb-6">
-Hi, I'm <span class="text-cyan-400">Yogesh L</span>
+<h1 class="text-5xl font-bold mb-4">
+Hi, I'm <span class="text-blue-400">Yogesh L</span>
 </h1>
 
-<div class="text-2xl text-cyan-300 h-10">
-<span id="typing"></span>
+<div class="mb-6 text-green-400 border border-green-400 inline-block px-4 py-1 rounded-full">
+Available for Internship / Entry Level Roles
 </div>
 
-<p class="mt-6 text-gray-300 max-w-2xl mx-auto">
-MCA Data Science student passionate about Data Analytics, Machine Learning, and building real-world data solutions.
+<div class="text-2xl mb-6">
+<span id="typed-text"></span><span>|</span>
+</div>
+
+<p class="text-gray-300 mb-8">
+MCA Data Science student passionate about Data Analysis, Machine Learning, and building impactful projects.
 </p>
 
-<div class="mt-10 flex justify-center gap-4 flex-wrap">
-<a href="#projects" class="px-8 py-3 bg-cyan-500 rounded-full hover:scale-105 transition">View Projects</a>
-<a href="resume.pdf" download class="px-8 py-3 border border-cyan-400 rounded-full hover:bg-cyan-500/10 transition">Download Resume</a>
+<div class="flex gap-4 justify-center flex-wrap">
+<a href="#contact" class="px-6 py-3 bg-blue-500 rounded-full">Contact</a>
+<a href="resume.pdf" download class="px-6 py-3 bg-green-500 rounded-full">Download Resume</a>
 </div>
 
 </div>
 </section>
 
 <!-- ABOUT -->
-<section id="about" class="py-20 px-6">
-<div class="max-w-5xl mx-auto text-center fade">
-<h2 class="text-4xl font-bold text-cyan-400 mb-6">About Me</h2>
-<div class="glass p-8">
-<p>
-I am currently pursuing MCA with specialization in Data Science. I have hands-on experience in Python, SQL, Power BI, Tableau, and Machine Learning. I enjoy transforming raw data into meaningful insights and building analytics solutions.
+<section id="about" class="py-20 fade-in">
+<div class="max-w-6xl mx-auto px-6 text-center">
+<h2 class="text-4xl font-bold mb-6 text-blue-400">About Me</h2>
+<p class="text-gray-300">
+I am pursuing MCA in Data Science at Chanakya University. I specialize in Python, SQL, Power BI, Tableau and Machine Learning. I am actively looking for Data Analyst / Data Science opportunities.
 </p>
-</div>
 </div>
 </section>
 
 <!-- SKILLS -->
-<section id="skills" class="py-20 px-6">
-<div class="max-w-6xl mx-auto fade">
-<h2 class="text-4xl font-bold text-center text-cyan-400 mb-12">Technical Skills</h2>
+<section id="skills" class="py-20 fade-in">
+<div class="max-w-6xl mx-auto px-6">
+<h2 class="text-4xl text-center text-blue-400 mb-10">Skills</h2>
+<div class="grid md:grid-cols-3 gap-6 text-center">
 
-<div class="grid md:grid-cols-2 gap-8">
-
-<div class="glass p-6">
-Python
-<div class="skill-bar mt-2"><div class="skill-fill" data-width="90%"></div></div>
-</div>
-
-<div class="glass p-6">
-SQL
-<div class="skill-bar mt-2"><div class="skill-fill" data-width="85%"></div></div>
-</div>
-
-<div class="glass p-6">
-Power BI / Tableau
-<div class="skill-bar mt-2"><div class="skill-fill" data-width="80%"></div></div>
-</div>
-
-<div class="glass p-6">
-Machine Learning
-<div class="skill-bar mt-2"><div class="skill-fill" data-width="75%"></div></div>
-</div>
+<div class="p-6 bg-slate-800 rounded-lg">Python</div>
+<div class="p-6 bg-slate-800 rounded-lg">SQL</div>
+<div class="p-6 bg-slate-800 rounded-lg">Power BI</div>
+<div class="p-6 bg-slate-800 rounded-lg">Tableau</div>
+<div class="p-6 bg-slate-800 rounded-lg">Machine Learning</div>
+<div class="p-6 bg-slate-800 rounded-lg">Excel</div>
 
 </div>
 </div>
 </section>
 
 <!-- PROJECTS -->
-<section id="projects" class="py-20 px-6">
-<div class="max-w-6xl mx-auto fade">
-<h2 class="text-4xl font-bold text-center text-cyan-400 mb-12">Projects</h2>
+<section id="projects" class="py-20 fade-in">
+<div class="max-w-6xl mx-auto px-6">
+<h2 class="text-4xl text-center text-blue-400 mb-10">Projects</h2>
 
 <div class="grid md:grid-cols-2 gap-8">
 
-<div class="glass p-6">
-<h3 class="text-xl font-bold">Heart Disease Prediction</h3>
-<p class="text-gray-400">ML model for early disease detection.</p>
-<a href="#" class="text-cyan-400 mt-2 inline-block">GitHub →</a>
+<div class="bg-slate-800 p-6 rounded-lg">
+<h3 class="text-xl font-bold mb-2">Heart Disease Prediction</h3>
+<p class="text-gray-300 mb-4">Machine learning model for early heart disease detection.</p>
+<a href="https://github.com/YOUR_USERNAME" target="_blank" class="bg-blue-500 px-4 py-2 rounded">View Code</a>
 </div>
 
-<div class="glass p-6">
-<h3 class="text-xl font-bold">Sales Dashboard</h3>
-<p class="text-gray-400">Interactive Power BI dashboard.</p>
-<a href="#" class="text-cyan-400 mt-2 inline-block">GitHub →</a>
+<div class="bg-slate-800 p-6 rounded-lg">
+<h3 class="text-xl font-bold mb-2">Sales Dashboard</h3>
+<p class="text-gray-300 mb-4">Interactive Power BI dashboard for business insights.</p>
+<a href="https://github.com/YOUR_USERNAME" target="_blank" class="bg-blue-500 px-4 py-2 rounded">View Code</a>
 </div>
 
 </div>
-</div>
-</section>
-
-<!-- EXPERIENCE -->
-<section id="experience" class="py-20 px-6">
-<div class="max-w-4xl mx-auto fade">
-<h2 class="text-4xl font-bold text-center text-cyan-400 mb-10">Education</h2>
-
-<div class="glass p-6 mb-6">
-<h3 class="font-bold">MCA – Data Science</h3>
-<p class="text-gray-400">Chanakya University (2024-2026)</p>
-</div>
-
-<div class="glass p-6">
-<h3 class="font-bold">BCA</h3>
-<p class="text-gray-400">2021-2024</p>
-</div>
-
 </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="py-20 px-6">
-<div class="max-w-4xl mx-auto text-center fade">
-<h2 class="text-4xl font-bold text-cyan-400 mb-10">Contact</h2>
-
-<div class="glass p-8 space-y-4">
-<p>Email: yourmail@gmail.com</p>
-<p>Phone: +91 XXXXX XXXXX</p>
-<p>GitHub: github.com/Yogi014</p>
-<p>LinkedIn: linkedin.com/in/yourprofile</p>
-</div>
+<section id="contact" class="py-20 fade-in">
+<div class="max-w-4xl mx-auto px-6 text-center">
+<h2 class="text-4xl text-blue-400 mb-6">Contact</h2>
+<p>Email: yogesh@email.com</p>
+<p>Phone: +91 XXXXXXXX</p>
 </div>
 </section>
 
-<footer class="text-center py-6 border-t border-cyan-500/20">
+<!-- VISITOR -->
+<div class="text-center py-4">
+Visitors:
+<img src="https://hitwebcounter.com/counter/counter.php?page=123456&style=0006&nbdigits=5&type=page&initCount=0"/>
+</div>
+
+<!-- FOOTER -->
+<footer class="py-6 text-center bg-slate-900">
 © 2026 Yogesh L
 </footer>
 
+<!-- BACK TO TOP -->
+<button id="topBtn" class="fixed bottom-6 right-6 bg-blue-500 p-3 rounded-full hidden">
+<i class="fas fa-arrow-up"></i>
+</button>
+
 <script>
-// Typing animation
-const roles=["Data Analyst","Python Developer","MCA Data Science Student","ML Enthusiast"];
-let i=0,j=0,del=false;
+// typing
+const titles=["Data Analyst","Python Developer","ML Enthusiast"];
+let i=0,j=0,txt=document.getElementById("typed-text");
 function type(){
-let el=document.getElementById("typing");
-if(!del && j<=roles[i].length) el.textContent=roles[i].substring(0,j++);
-if(del && j>=0) el.textContent=roles[i].substring(0,j--);
-if(j==roles[i].length) del=true;
-if(j==0){del=false;i=(i+1)%roles.length;}
-setTimeout(type,del?40:80);
+if(j<titles[i].length){txt.innerHTML+=titles[i][j];j++;setTimeout(type,80);}
+else{setTimeout(()=>{txt.innerHTML="";j=0;i=(i+1)%titles.length;type();},1500);}
 }
 type();
 
-// Fade
-const observer=new IntersectionObserver(entries=>{
-entries.forEach(e=>{
-if(e.isIntersecting){
-e.target.classList.add("show");
-if(e.target.querySelectorAll(".skill-fill")){
-e.target.querySelectorAll(".skill-fill").forEach(bar=>{
-bar.style.transform="scaleX(1)";
-bar.style.width=bar.dataset.width;
-});
-}
-}
-});
-});
-document.querySelectorAll(".fade").forEach(el=>observer.observe(el));
-
-// Particle network
-const canvas=document.getElementById("particles");
+// particles
+const canvas=document.getElementById("particle-canvas");
 const ctx=canvas.getContext("2d");
-canvas.width=window.innerWidth;
-canvas.height=window.innerHeight;
-
+canvas.width=innerWidth;
+canvas.height=innerHeight;
 let particles=[];
-for(let i=0;i<80;i++){
-particles.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,vx:(Math.random()-0.5),vy:(Math.random()-0.5)});
+for(let k=0;k<80;k++){
+particles.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,vx:Math.random()-.5,vy:Math.random()-.5});
 }
-
-function draw(){
+function animate(){
 ctx.clearRect(0,0,canvas.width,canvas.height);
 particles.forEach(p=>{
-p.x+=p.vx;
-p.y+=p.vy;
-ctx.beginPath();
-ctx.arc(p.x,p.y,2,0,Math.PI*2);
-ctx.fillStyle="rgba(6,182,212,0.6)";
-ctx.fill();
+p.x+=p.vx;p.y+=p.vy;
+ctx.fillStyle="rgba(59,130,246,.5)";
+ctx.fillRect(p.x,p.y,2,2);
 });
-requestAnimationFrame(draw);
+requestAnimationFrame(animate);
 }
-draw();
+animate();
+
+// scroll fade
+const obs=new IntersectionObserver(e=>{
+e.forEach(el=>{if(el.isIntersecting)el.target.classList.add("visible")});
+});
+document.querySelectorAll(".fade-in").forEach(el=>obs.observe(el));
+
+// back to top
+const btn=document.getElementById("topBtn");
+window.onscroll=()=>{btn.style.display=scrollY>400?"block":"none"};
+btn.onclick=()=>window.scrollTo({top:0,behavior:"smooth"});
+
+// mobile menu
+document.getElementById("menu-btn").onclick=()=>{
+document.getElementById("mobile-menu").classList.toggle("hidden");
+};
 </script>
 
 </body>
