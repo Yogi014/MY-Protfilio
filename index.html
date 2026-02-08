@@ -5,26 +5,33 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Yogesh L | Data Science Portfolio</title>
 
+<!-- Tailwind -->
 <script src="https://cdn.tailwindcss.com"></script>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Icons -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
 <style>
 body{
 font-family:Inter,sans-serif;
 overflow-x:hidden;
 background:linear-gradient(-45deg,#020617,#083344,#0e7490,#06b6d4,#083344,#020617);
-background-size:200% 200%;
-animation:gradientMove 15s ease infinite;
+background-size:300% 300%;
+animation:bgMove 18s ease infinite;
 color:#e5e7eb;
 }
 
-@keyframes gradientMove{
+@keyframes bgMove{
 0%{background-position:0% 50%}
 50%{background-position:100% 50%}
 100%{background-position:0% 50%}
 }
 
-#particle-canvas{
+/* Particle canvas */
+#particles{
 position:fixed;
 top:0;
 left:0;
@@ -33,128 +40,142 @@ height:100%;
 z-index:-1;
 }
 
-.fade-in{
-opacity:0;
-transform:translateY(30px);
-transition:all 0.8s;
+/* Glass card */
+.glass{
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(15px);
+border:1px solid rgba(6,182,212,0.25);
+border-radius:20px;
+transition:0.4s;
 }
-.fade-in.visible{
+.glass:hover{
+transform:translateY(-10px);
+box-shadow:0 20px 40px rgba(6,182,212,0.35);
+}
+
+/* Fade animation */
+.fade{
+opacity:0;
+transform:translateY(40px);
+transition:1s;
+}
+.fade.show{
 opacity:1;
 transform:translateY(0);
 }
 
-.profile-glow{
-box-shadow:0 0 30px rgba(6,182,212,0.6);
-transition:0.3s;
+/* Skill bar */
+.skill-bar{
+height:8px;
+background:rgba(255,255,255,0.1);
+border-radius:10px;
+overflow:hidden;
 }
-.profile-glow:hover{
-transform:scale(1.05);
+.skill-fill{
+height:100%;
+background:linear-gradient(90deg,#06b6d4,#3b82f6);
+transform-origin:left;
+transform:scaleX(0);
+transition:1.5s;
+}
+
+/* Profile glow */
+.profile{
+box-shadow:0 0 50px rgba(6,182,212,0.8);
+transition:0.4s;
+}
+.profile:hover{
+transform:scale(1.06);
 }
 </style>
 </head>
 
 <body>
 
-<canvas id="particle-canvas"></canvas>
+<canvas id="particles"></canvas>
 
 <!-- NAVBAR -->
-<nav class="fixed top-0 w-full bg-slate-900/70 backdrop-blur-lg z-50 border-b border-cyan-500/20">
+<nav class="fixed w-full bg-black/40 backdrop-blur-lg border-b border-cyan-500/20 z-50">
 <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-<div class="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-Yogesh L
-</div>
-
+<h1 class="text-2xl font-bold text-cyan-400">Yogesh L</h1>
 <div class="hidden md:flex space-x-8">
-<a href="#home" class="hover:text-cyan-400">Home</a>
-<a href="#about" class="hover:text-cyan-400">About</a>
-<a href="#skills" class="hover:text-cyan-400">Skills</a>
-<a href="#projects" class="hover:text-cyan-400">Projects</a>
-<a href="#contact" class="hover:text-cyan-400">Contact</a>
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+<a href="#experience">Experience</a>
+<a href="#contact">Contact</a>
 </div>
 </div>
 </nav>
 
 <!-- HERO -->
-<section id="home" class="min-h-screen flex items-center justify-center pt-20 text-center px-6">
-<div class="max-w-4xl">
+<section id="home" class="min-h-screen flex items-center justify-center text-center pt-20 px-6">
+<div class="max-w-4xl fade">
 
 <div class="mb-8">
-<div class="w-40 h-40 mx-auto rounded-full p-1 bg-gradient-to-r from-cyan-400 to-blue-400 profile-glow">
+<div class="w-44 h-44 mx-auto rounded-full p-1 bg-gradient-to-r from-cyan-400 to-blue-500 profile">
 <img src="me.jpeg" class="w-full h-full rounded-full object-cover">
 </div>
 </div>
 
 <h1 class="text-5xl md:text-7xl font-bold mb-6">
-Hi, I'm
-<span class="bg-gradient-to-r from-cyan-400 via-blue-400 to-sky-400 bg-clip-text text-transparent">
-Yogesh L
-</span>
+Hi, I'm <span class="text-cyan-400">Yogesh L</span>
 </h1>
 
-<div class="text-2xl text-cyan-400 h-10">
-<span id="typed-text"></span>
-|
+<div class="text-2xl text-cyan-300 h-10">
+<span id="typing"></span>
 </div>
 
-<p class="text-lg text-gray-300 mt-6 max-w-2xl mx-auto">
-MCA Data Science student passionate about Data Analytics, Machine Learning and Python Development.
+<p class="mt-6 text-gray-300 max-w-2xl mx-auto">
+MCA Data Science student passionate about Data Analytics, Machine Learning, and building real-world data solutions.
 </p>
 
-<div class="mt-10 flex gap-4 justify-center flex-wrap">
-<a href="#projects" class="px-8 py-3 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full hover:scale-105 transition">
-View Projects
-</a>
-
-<a href="#contact" class="px-8 py-3 border border-cyan-500 rounded-full hover:bg-cyan-500/10 transition">
-Contact Me
-</a>
+<div class="mt-10 flex justify-center gap-4 flex-wrap">
+<a href="#projects" class="px-8 py-3 bg-cyan-500 rounded-full hover:scale-105 transition">View Projects</a>
+<a href="resume.pdf" download class="px-8 py-3 border border-cyan-400 rounded-full hover:bg-cyan-500/10 transition">Download Resume</a>
 </div>
 
 </div>
 </section>
 
 <!-- ABOUT -->
-<section id="about" class="py-20 px-6 fade-in">
-<div class="max-w-6xl mx-auto text-center">
-<h2 class="text-4xl font-bold mb-6 text-cyan-400">About Me</h2>
-
-<p class="text-gray-300 max-w-3xl mx-auto leading-relaxed">
-I am currently pursuing Master of Computer Applications (MCA) with specialization in Data Science. 
-I have hands-on experience in Python, SQL, Power BI, Tableau and Machine Learning. 
-I enjoy solving real-world problems using data and building interactive dashboards and analytics solutions.
+<section id="about" class="py-20 px-6">
+<div class="max-w-5xl mx-auto text-center fade">
+<h2 class="text-4xl font-bold text-cyan-400 mb-6">About Me</h2>
+<div class="glass p-8">
+<p>
+I am currently pursuing MCA with specialization in Data Science. I have hands-on experience in Python, SQL, Power BI, Tableau, and Machine Learning. I enjoy transforming raw data into meaningful insights and building analytics solutions.
 </p>
+</div>
 </div>
 </section>
 
 <!-- SKILLS -->
-<section id="skills" class="py-20 px-6 fade-in">
-<div class="max-w-6xl mx-auto text-center">
-<h2 class="text-4xl font-bold mb-10 text-cyan-400">Technical Skills</h2>
+<section id="skills" class="py-20 px-6">
+<div class="max-w-6xl mx-auto fade">
+<h2 class="text-4xl font-bold text-center text-cyan-400 mb-12">Technical Skills</h2>
 
-<div class="grid md:grid-cols-3 gap-6">
+<div class="grid md:grid-cols-2 gap-8">
 
-<div class="p-6 bg-slate-900/50 rounded-xl border border-cyan-500/20">
+<div class="glass p-6">
 Python
+<div class="skill-bar mt-2"><div class="skill-fill" data-width="90%"></div></div>
 </div>
 
-<div class="p-6 bg-slate-900/50 rounded-xl border border-cyan-500/20">
+<div class="glass p-6">
 SQL
+<div class="skill-bar mt-2"><div class="skill-fill" data-width="85%"></div></div>
 </div>
 
-<div class="p-6 bg-slate-900/50 rounded-xl border border-cyan-500/20">
+<div class="glass p-6">
 Power BI / Tableau
+<div class="skill-bar mt-2"><div class="skill-fill" data-width="80%"></div></div>
 </div>
 
-<div class="p-6 bg-slate-900/50 rounded-xl border border-cyan-500/20">
+<div class="glass p-6">
 Machine Learning
-</div>
-
-<div class="p-6 bg-slate-900/50 rounded-xl border border-cyan-500/20">
-Excel
-</div>
-
-<div class="p-6 bg-slate-900/50 rounded-xl border border-cyan-500/20">
-HTML / CSS
+<div class="skill-bar mt-2"><div class="skill-fill" data-width="75%"></div></div>
 </div>
 
 </div>
@@ -162,111 +183,118 @@ HTML / CSS
 </section>
 
 <!-- PROJECTS -->
-<section id="projects" class="py-20 px-6 fade-in">
-<div class="max-w-6xl mx-auto text-center">
-<h2 class="text-4xl font-bold mb-10 text-cyan-400">Projects</h2>
+<section id="projects" class="py-20 px-6">
+<div class="max-w-6xl mx-auto fade">
+<h2 class="text-4xl font-bold text-center text-cyan-400 mb-12">Projects</h2>
 
 <div class="grid md:grid-cols-2 gap-8">
 
-<div class="p-6 bg-slate-900/50 rounded-xl border border-cyan-500/20">
-<h3 class="text-xl font-bold mb-2">Heart Disease Prediction</h3>
-<p class="text-gray-400">Machine learning model for early heart disease detection.</p>
+<div class="glass p-6">
+<h3 class="text-xl font-bold">Heart Disease Prediction</h3>
+<p class="text-gray-400">ML model for early disease detection.</p>
+<a href="#" class="text-cyan-400 mt-2 inline-block">GitHub →</a>
 </div>
 
-<div class="p-6 bg-slate-900/50 rounded-xl border border-cyan-500/20">
-<h3 class="text-xl font-bold mb-2">Sales Dashboard</h3>
-<p class="text-gray-400">Interactive Power BI dashboard for business insights.</p>
+<div class="glass p-6">
+<h3 class="text-xl font-bold">Sales Dashboard</h3>
+<p class="text-gray-400">Interactive Power BI dashboard.</p>
+<a href="#" class="text-cyan-400 mt-2 inline-block">GitHub →</a>
 </div>
 
 </div>
+</div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="py-20 px-6">
+<div class="max-w-4xl mx-auto fade">
+<h2 class="text-4xl font-bold text-center text-cyan-400 mb-10">Education</h2>
+
+<div class="glass p-6 mb-6">
+<h3 class="font-bold">MCA – Data Science</h3>
+<p class="text-gray-400">Chanakya University (2024-2026)</p>
+</div>
+
+<div class="glass p-6">
+<h3 class="font-bold">BCA</h3>
+<p class="text-gray-400">2021-2024</p>
+</div>
+
 </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="py-20 px-6 fade-in">
-<div class="max-w-4xl mx-auto text-center">
-<h2 class="text-4xl font-bold mb-8 text-cyan-400">Contact</h2>
+<section id="contact" class="py-20 px-6">
+<div class="max-w-4xl mx-auto text-center fade">
+<h2 class="text-4xl font-bold text-cyan-400 mb-10">Contact</h2>
 
-<p class="mb-4">Email: yourmail@gmail.com</p>
-<p class="mb-4">GitHub: github.com/Yogi014</p>
-<p>Location: Bangalore, India</p>
+<div class="glass p-8 space-y-4">
+<p>Email: yourmail@gmail.com</p>
+<p>Phone: +91 XXXXX XXXXX</p>
+<p>GitHub: github.com/Yogi014</p>
+<p>LinkedIn: linkedin.com/in/yourprofile</p>
+</div>
 </div>
 </section>
 
-<!-- FOOTER -->
 <footer class="text-center py-6 border-t border-cyan-500/20">
 © 2026 Yogesh L
 </footer>
 
 <script>
-/* Particle Background */
-const canvas=document.getElementById("particle-canvas");
+// Typing animation
+const roles=["Data Analyst","Python Developer","MCA Data Science Student","ML Enthusiast"];
+let i=0,j=0,del=false;
+function type(){
+let el=document.getElementById("typing");
+if(!del && j<=roles[i].length) el.textContent=roles[i].substring(0,j++);
+if(del && j>=0) el.textContent=roles[i].substring(0,j--);
+if(j==roles[i].length) del=true;
+if(j==0){del=false;i=(i+1)%roles.length;}
+setTimeout(type,del?40:80);
+}
+type();
+
+// Fade
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(e=>{
+if(e.isIntersecting){
+e.target.classList.add("show");
+if(e.target.querySelectorAll(".skill-fill")){
+e.target.querySelectorAll(".skill-fill").forEach(bar=>{
+bar.style.transform="scaleX(1)";
+bar.style.width=bar.dataset.width;
+});
+}
+}
+});
+});
+document.querySelectorAll(".fade").forEach(el=>observer.observe(el));
+
+// Particle network
+const canvas=document.getElementById("particles");
 const ctx=canvas.getContext("2d");
 canvas.width=window.innerWidth;
 canvas.height=window.innerHeight;
 
 let particles=[];
-for(let i=0;i<100;i++){
-particles.push({
-x:Math.random()*canvas.width,
-y:Math.random()*canvas.height,
-vx:(Math.random()-0.5),
-vy:(Math.random()-0.5)
-});
+for(let i=0;i<80;i++){
+particles.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,vx:(Math.random()-0.5),vy:(Math.random()-0.5)});
 }
 
-function animate(){
+function draw(){
 ctx.clearRect(0,0,canvas.width,canvas.height);
 particles.forEach(p=>{
 p.x+=p.vx;
 p.y+=p.vy;
-
 ctx.beginPath();
 ctx.arc(p.x,p.y,2,0,Math.PI*2);
 ctx.fillStyle="rgba(6,182,212,0.6)";
 ctx.fill();
 });
-requestAnimationFrame(animate);
+requestAnimationFrame(draw);
 }
-animate();
-
-/* Typing Effect */
-const titles=[
-"MCA Data Science Student",
-"Python Developer",
-"Data Analyst",
-"Machine Learning Enthusiast"
-];
-let i=0,j=0,current="",isDeleting=false;
-const element=document.getElementById("typed-text");
-
-function type(){
-if(i<titles.length){
-if(!isDeleting && j<=titles[i].length){
-current=titles[i].substring(0,j++);
-element.innerHTML=current;
-}
-if(isDeleting && j>=0){
-current=titles[i].substring(0,j--);
-element.innerHTML=current;
-}
-if(j==titles[i].length){isDeleting=true;setTimeout(type,1000);return;}
-if(j==0){isDeleting=false;i++;if(i==titles.length)i=0;}
-}
-setTimeout(type,isDeleting?40:80);
-}
-type();
-
-/* Fade animation */
-const observer=new IntersectionObserver(entries=>{
-entries.forEach(entry=>{
-if(entry.isIntersecting){
-entry.target.classList.add("visible");
-}
-});
-});
-
-document.querySelectorAll(".fade-in").forEach(el=>observer.observe(el));
+draw();
 </script>
 
 </body>
