@@ -3,195 +3,219 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Yogesh L | Portfolio</title>
+<title>Yogesh L | Data Scientist Portfolio</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
 <style>
-/* Animated Gradient Background (Lovable style) */
-body {
-  font-family: 'Inter', sans-serif;
-  background: linear-gradient(-45deg,#020617,#0f172a,#1e3a8a,#312e81,#0f172a);
-  background-size: 300% 300%;
-  animation: gradientMove 15s ease infinite;
+body{
+font-family: 'Inter', sans-serif;
+background: linear-gradient(-45deg,#020617,#0f172a,#1e3a8a,#020617);
+background-size:400% 400%;
+animation: gradient 15s ease infinite;
+color:white;
 }
 
-@keyframes gradientMove {
-  0% {background-position:0% 50%;}
-  50% {background-position:100% 50%;}
-  100% {background-position:0% 50%;}
+@keyframes gradient{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
 }
 
-/* Glow effect */
-.glow {
-  box-shadow: 0 0 40px rgba(59,130,246,0.5);
+.glass{
+background: rgba(255,255,255,0.05);
+backdrop-filter: blur(10px);
+border:1px solid rgba(255,255,255,0.1);
+border-radius:16px;
 }
 
-/* Section animation */
-.fade {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s ease;
-}
-.fade.show {
-  opacity: 1;
-  transform: translateY(0);
+.profile-glow{
+box-shadow:0 0 30px rgba(59,130,246,0.5);
 }
 
-/* Card style */
-.card {
-  background: rgba(15,23,42,0.7);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(59,130,246,0.2);
+.fade{
+opacity:0;
+transform:translateY(30px);
+transition:0.8s;
+}
+.fade.show{
+opacity:1;
+transform:translateY(0);
 }
 </style>
 </head>
 
-<body class="text-gray-100">
+<body>
 
 <!-- Navbar -->
-<nav class="fixed top-0 w-full bg-slate-900/60 backdrop-blur border-b border-blue-500/20 z-50">
-  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between">
-    <h1 class="text-2xl font-bold text-blue-400">Yogesh L</h1>
-    <div class="space-x-8 hidden md:block">
-      <a href="#home" class="hover:text-blue-400">Home</a>
-      <a href="#about" class="hover:text-blue-400">About</a>
-      <a href="#skills" class="hover:text-blue-400">Skills</a>
-      <a href="#projects" class="hover:text-blue-400">Projects</a>
-      <a href="#contact" class="hover:text-blue-400">Contact</a>
-    </div>
-  </div>
+<nav class="fixed w-full top-0 bg-black/40 backdrop-blur-md z-50">
+<div class="max-w-6xl mx-auto flex justify-between items-center p-4">
+<h1 class="text-xl font-bold text-blue-400">Yogesh L</h1>
+<div class="space-x-6 hidden md:block">
+<a href="#home" class="hover:text-blue-400">Home</a>
+<a href="#about" class="hover:text-blue-400">About</a>
+<a href="#skills" class="hover:text-blue-400">Skills</a>
+<a href="#projects" class="hover:text-blue-400">Projects</a>
+<a href="#contact" class="hover:text-blue-400">Contact</a>
+</div>
+</div>
 </nav>
 
 <!-- Hero -->
-<section id="home" class="min-h-screen flex items-center justify-center text-center px-6 pt-24">
-  <div class="max-w-4xl fade">
-    
-    <img src="profile.jpg" class="w-44 h-44 rounded-full mx-auto mb-8 border-4 border-blue-500 glow object-cover">
+<section id="home" class="min-h-screen flex items-center justify-center text-center px-6">
+<div class="max-w-4xl">
+<img src="profile.jpg" class="w-40 h-40 rounded-full mx-auto mb-6 object-cover profile-glow">
 
-    <h1 class="text-5xl md:text-7xl font-bold mb-4">
-      Hi, I'm <span class="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Yogesh L</span>
-    </h1>
+<h1 class="text-5xl font-bold mb-4">
+Hi, I'm <span class="text-blue-400">Yogesh L</span>
+</h1>
 
-    <p class="text-xl text-gray-300 mb-8">
-      MCA Data Science Student | Data Analyst | Python • SQL • Power BI • Tableau
-    </p>
+<h2 class="text-2xl text-gray-300 mb-6" id="typing"></h2>
 
-    <div class="flex gap-4 justify-center">
-      <a href="#projects" class="px-6 py-3 bg-blue-500 rounded-lg hover:bg-blue-600 transition">
-        View Projects
-      </a>
-      <a href="#contact" class="px-6 py-3 border border-blue-500 rounded-lg hover:bg-blue-500/10 transition">
-        Contact
-      </a>
-    </div>
+<p class="text-gray-400 mb-8">
+Results-driven Data Scientist skilled in Python, SQL, Machine Learning and Data Visualization. Passionate about transforming data into actionable insights.
+</p>
 
-  </div>
+<a href="#contact" class="bg-blue-500 px-6 py-3 rounded-lg hover:bg-blue-600 transition">
+Contact Me
+</a>
+</div>
 </section>
 
 <!-- About -->
 <section id="about" class="py-20 px-6 fade">
-  <div class="max-w-5xl mx-auto text-center">
-    <h2 class="text-4xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-      About Me
-    </h2>
-    <p class="text-gray-300 text-lg leading-relaxed">
-      MCA Data Science student at Chanakya University passionate about data analysis, machine learning, and visualization. 
-      Skilled in Python, SQL, Tableau, and Power BI, with hands-on experience in real-world data projects.
-    </p>
-  </div>
+<div class="max-w-5xl mx-auto glass p-8">
+<h2 class="text-3xl font-bold text-blue-400 mb-4">About Me</h2>
+<p class="text-gray-300 leading-relaxed">
+I am currently pursuing MCA in Data Science at Chanakya University. I have hands-on experience in Machine Learning, Data Analysis, and Dashboard development. I have worked as a Python Developer Intern and Data Annotator, and built predictive models achieving 85% accuracy.
+</p>
+</div>
 </section>
 
 <!-- Skills -->
 <section id="skills" class="py-20 px-6 fade">
-  <div class="max-w-6xl mx-auto">
-    <h2 class="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-      Skills
-    </h2>
+<div class="max-w-6xl mx-auto">
+<h2 class="text-3xl font-bold text-center text-blue-400 mb-10">Technical Skills</h2>
 
-    <div class="grid md:grid-cols-3 gap-8">
-      <div class="card p-6 rounded-xl">
-        <h3 class="text-xl font-bold mb-3">Programming</h3>
-        Python, SQL, Java
-      </div>
+<div class="grid md:grid-cols-3 gap-6">
 
-      <div class="card p-6 rounded-xl">
-        <h3 class="text-xl font-bold mb-3">Data Analysis</h3>
-        Pandas, NumPy, Machine Learning, EDA
-      </div>
+<div class="glass p-6">
+<h3 class="font-bold mb-3 text-blue-300">Programming</h3>
+Python, SQL, Pandas, NumPy
+</div>
 
-      <div class="card p-6 rounded-xl">
-        <h3 class="text-xl font-bold mb-3">Visualization</h3>
-        Power BI, Tableau, Excel, Matplotlib
-      </div>
-    </div>
-  </div>
+<div class="glass p-6">
+<h3 class="font-bold mb-3 text-blue-300">Machine Learning</h3>
+Regression, Classification, Clustering, Scikit-learn
+</div>
+
+<div class="glass p-6">
+<h3 class="font-bold mb-3 text-blue-300">Visualization</h3>
+Power BI, Tableau, Excel, Matplotlib
+</div>
+
+<div class="glass p-6">
+<h3 class="font-bold mb-3 text-blue-300">Deep Learning</h3>
+CNN, RNN, TensorFlow
+</div>
+
+<div class="glass p-6">
+<h3 class="font-bold mb-3 text-blue-300">Databases</h3>
+MySQL, MongoDB
+</div>
+
+<div class="glass p-6">
+<h3 class="font-bold mb-3 text-blue-300">Tools</h3>
+Git, VS Code, Jupyter
+</div>
+
+</div>
+</div>
 </section>
 
 <!-- Projects -->
 <section id="projects" class="py-20 px-6 fade">
-  <div class="max-w-6xl mx-auto">
-    <h2 class="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-      Projects
-    </h2>
+<div class="max-w-6xl mx-auto">
+<h2 class="text-3xl font-bold text-center text-blue-400 mb-10">Projects</h2>
 
-    <div class="grid md:grid-cols-2 gap-8">
-      <div class="card p-6 rounded-xl">
-        <h3 class="text-xl font-bold mb-2">Heart Disease Prediction</h3>
-        ML model using Logistic Regression & Random Forest (85% accuracy)
-      </div>
+<div class="grid md:grid-cols-2 gap-6">
 
-      <div class="card p-6 rounded-xl">
-        <h3 class="text-xl font-bold mb-2">Diabetes Dashboard</h3>
-        Interactive Tableau dashboard for patient analysis
-      </div>
+<div class="glass p-6">
+<h3 class="font-bold text-xl mb-2">Heart Disease Prediction</h3>
+<p class="text-gray-400">
+Built ML models using Logistic Regression and Random Forest achieving 85% accuracy.
+</p>
+</div>
 
-      <div class="card p-6 rounded-xl">
-        <h3 class="text-xl font-bold mb-2">Ikshana E-Commerce</h3>
-        Full-stack MERN project with responsive UI
-      </div>
-    </div>
-  </div>
+<div class="glass p-6">
+<h3 class="font-bold text-xl mb-2">EDA – 300K Health Records</h3>
+<p class="text-gray-400">
+Performed large-scale data cleaning and visualization to identify early risk factors.
+</p>
+</div>
+
+<div class="glass p-6">
+<h3 class="font-bold text-xl mb-2">Ikshana E-Commerce Website</h3>
+<p class="text-gray-400">
+Full-stack MERN application with responsive UI and product management.
+</p>
+</div>
+
+<div class="glass p-6">
+<h3 class="font-bold text-xl mb-2">Python GUI Calculator</h3>
+<p class="text-gray-400">
+Developed using Tkinter with OOP and exception handling.
+</p>
+</div>
+
+</div>
+</div>
 </section>
 
 <!-- Contact -->
 <section id="contact" class="py-20 px-6 fade">
-  <div class="max-w-4xl mx-auto text-center">
-    <h2 class="text-4xl font-bold mb-8 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-      Contact
-    </h2>
+<div class="max-w-4xl mx-auto glass p-8 text-center">
+<h2 class="text-3xl font-bold text-blue-400 mb-6">Contact</h2>
 
-    <p class="mb-3"><i class="fas fa-envelope"></i> yogesharadhya8055@gmail.com</p>
-    <p class="mb-3"><i class="fab fa-linkedin"></i> linkedin.com</p>
-    <p><i class="fab fa-github"></i> github.com/Yogi014</p>
-  </div>
+<p class="mb-4">📧 yogesharadhya8055@gmail.com</p>
+<p class="mb-4">📞 +91 7204141822</p>
+
+<div class="space-x-6 text-2xl">
+<a href="#" class="hover:text-blue-400"><i class="fab fa-linkedin"></i></a>
+<a href="#" class="hover:text-blue-400"><i class="fab fa-github"></i></a>
+</div>
+</div>
 </section>
 
 <!-- Footer -->
-<footer class="text-center py-6 border-t border-gray-700">
-  <p class="text-gray-400">© 2026 Yogesh L</p>
+<footer class="text-center py-6 text-gray-500">
+© 2026 Yogesh L
 </footer>
 
 <script>
-/* Scroll animation */
-const fades = document.querySelectorAll(".fade");
-const obs = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      e.target.classList.add("show");
-    }
-  });
-});
-fades.forEach(el=>obs.observe(el));
+// Typing Effect
+const roles=["Data Scientist","Machine Learning Engineer","Data Analyst","AI Enthusiast"];
+let i=0,j=0,txt="";
+function type(){
+if(j<roles[i].length){
+txt+=roles[i][j];
+document.getElementById("typing").innerHTML=txt;
+j++;
+setTimeout(type,80);
+}else{
+setTimeout(()=>{txt="";j=0;i=(i+1)%roles.length;type();},1500);
+}
+}
+type();
 
-/* Smooth scroll */
-document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
-  anchor.addEventListener("click",function(e){
-    e.preventDefault();
-    document.querySelector(this.getAttribute("href")).scrollIntoView({behavior:"smooth"});
-  });
+// Fade on scroll
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(e=>{
+if(e.isIntersecting) e.target.classList.add("show");
 });
+});
+document.querySelectorAll(".fade").forEach(el=>observer.observe(el));
 </script>
 
 </body>
