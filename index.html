@@ -3,7 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Yogesh L | Data Scientist Portfolio</title>
+<title>Yogesh L | Portfolio</title>
+
+<!-- FontAwesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 *{
@@ -20,7 +23,7 @@ color:#fff;
 overflow-x:hidden;
 }
 
-/* Animated Gradient Background */
+/* Animated Gradient */
 body::before{
 content:"";
 position:fixed;
@@ -61,10 +64,9 @@ z-index:1000;
 }
 
 nav a{
-color:#fff;
+color:white;
 margin:0 15px;
 text-decoration:none;
-font-weight:500;
 transition:0.3s;
 }
 
@@ -77,7 +79,7 @@ section{
 padding:90px 10%;
 }
 
-/* Glass Card */
+/* Glass */
 .glass{
 background:rgba(255,255,255,0.05);
 backdrop-filter:blur(15px);
@@ -93,17 +95,25 @@ transform:translateY(-6px);
 box-shadow:0 0 30px #6a00ff;
 }
 
-/* Hero */
+/* HERO CENTER */
 .hero{
 min-height:100vh;
 display:flex;
+justify-content:center;
 align-items:center;
-justify-content:space-between;
-flex-wrap:wrap;
+text-align:center;
+flex-direction:column;
 }
 
-.hero-text h1{
-font-size:48px;
+.profile-img{
+width:200px;
+border-radius:50%;
+margin-bottom:20px;
+box-shadow:0 0 40px #6a00ff;
+}
+
+.hero h1{
+font-size:46px;
 }
 
 .typing{
@@ -113,10 +123,22 @@ margin-top:10px;
 height:30px;
 }
 
-.hero img{
-width:230px;
-border-radius:50%;
-box-shadow:0 0 35px #6a00ff;
+/* Social Icons */
+.social-icons{
+margin-top:15px;
+}
+
+.social-icons a{
+color:white;
+font-size:30px;
+margin:0 12px;
+transition:0.3s;
+}
+
+.social-icons a:hover{
+color:#00eaff;
+transform:scale(1.2);
+text-shadow:0 0 15px #00eaff;
 }
 
 /* Buttons */
@@ -138,17 +160,13 @@ box-shadow:0 0 20px #00eaff;
 }
 
 /* Skills */
-.skill{
-margin:12px 0;
-}
-
+.skill{margin:12px 0;}
 .bar{
 height:8px;
 background:#222;
 border-radius:10px;
 overflow:hidden;
 }
-
 .bar span{
 display:block;
 height:100%;
@@ -164,29 +182,18 @@ grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
 gap:20px;
 }
 
-/* Timeline */
-.timeline{
-border-left:2px solid #6a00ff;
-padding-left:20px;
-}
-
-.timeline div{
-margin-bottom:20px;
-}
-
 /* Fade Animation */
 .fade{
 opacity:0;
 transform:translateY(40px);
 transition:1s;
 }
-
 .fade.show{
 opacity:1;
 transform:translateY(0);
 }
 
-/* Back to Top */
+/* Back to top */
 #topBtn{
 position:fixed;
 bottom:20px;
@@ -200,7 +207,6 @@ display:none;
 cursor:pointer;
 }
 
-/* Footer */
 footer{
 text-align:center;
 padding:20px;
@@ -208,6 +214,7 @@ background:rgba(0,0,0,0.6);
 }
 </style>
 </head>
+
 <body>
 
 <canvas id="particles"></canvas>
@@ -224,39 +231,42 @@ background:rgba(0,0,0,0.6);
 
 <!-- HERO -->
 <section id="home" class="hero">
-<div class="hero-text">
+<img src="me.jpeg" class="profile-img">
+
 <h1>Yogesh L</h1>
 <div class="typing" id="typing"></div>
 
-<a href="#projects" class="btn">View Projects</a>
-<a href="resume.pdf" class="btn" download>Download Resume</a>
+<div class="social-icons">
+<a href="https://www.linkedin.com/in/yogesh-aradhya/" target="_blank">
+<i class="fab fa-linkedin"></i>
+</a>
+
+<a href="https://github.com/Yogi014" target="_blank">
+<i class="fab fa-github"></i>
+</a>
 </div>
 
-<img src="me.jpeg" alt="Profile">
+<a href="#projects" class="btn">View Projects</a>
+<a href="resume.pdf" class="btn" download>Download Resume</a>
 </section>
 
 <!-- ABOUT -->
 <section id="about" class="fade">
 <div class="glass">
 <h2>About Me</h2>
-<p>
-MCA Data Science student at Chanakya University. I specialize in Data Analysis, Machine Learning,
-and building intelligent dashboards. Passionate about solving real-world problems using data and
-delivering insights that support decision making.
-</p>
+<p>MCA Data Science student at Chanakya University. Passionate about Data Analysis, Machine Learning, and building intelligent dashboards to solve real-world problems.</p>
 </div>
 </section>
 
 <!-- SKILLS -->
 <section id="skills" class="fade">
-<h2>Technical Skills</h2>
-
+<h2>Skills</h2>
 <div class="glass">
 <div class="skill">Python<div class="bar"><span data-width="90%"></span></div></div>
 <div class="skill">SQL<div class="bar"><span data-width="85%"></span></div></div>
 <div class="skill">Machine Learning<div class="bar"><span data-width="80%"></span></div></div>
 <div class="skill">Power BI / Tableau<div class="bar"><span data-width="85%"></span></div></div>
-<div class="skill">Excel & Data Analysis<div class="bar"><span data-width="88%"></span></div></div>
+<div class="skill">Excel<div class="bar"><span data-width="88%"></span></div></div>
 </div>
 </section>
 
@@ -267,30 +277,26 @@ delivering insights that support decision making.
 
 <div class="glass">
 <h3>Heart Disease Prediction</h3>
-<p>ML model achieving 85% accuracy using Logistic Regression & Random Forest.</p>
-<p><b>Tech:</b> Python, Scikit-learn</p>
-<a href="#" class="btn">GitHub</a>
+<p>Machine learning model with 85% accuracy.</p>
+<a href="https://github.com/Yogi014" target="_blank" class="btn">View Code</a>
 </div>
 
 <div class="glass">
 <h3>Diabetes Dashboard</h3>
-<p>Interactive Tableau dashboard for health insights.</p>
-<p><b>Tech:</b> Tableau</p>
-<a href="#" class="btn">GitHub</a>
+<p>Interactive Tableau dashboard.</p>
+<a href="https://github.com/Yogi014" target="_blank" class="btn">View Code</a>
 </div>
 
 <div class="glass">
 <h3>Inventory Clustering</h3>
-<p>KMeans, DBSCAN & Hierarchical clustering for segmentation.</p>
-<p><b>Tech:</b> Python</p>
-<a href="#" class="btn">GitHub</a>
+<p>Customer segmentation using clustering.</p>
+<a href="https://github.com/Yogi014" target="_blank" class="btn">View Code</a>
 </div>
 
 <div class="glass">
 <h3>Sales Analytics</h3>
-<p>Business intelligence dashboard for performance tracking.</p>
-<p><b>Tech:</b> Power BI</p>
-<a href="#" class="btn">GitHub</a>
+<p>Business intelligence dashboard.</p>
+<a href="https://github.com/Yogi014" target="_blank" class="btn">View Code</a>
 </div>
 
 </div>
@@ -298,22 +304,11 @@ delivering insights that support decision making.
 
 <!-- EXPERIENCE -->
 <section id="experience" class="fade">
+<div class="glass">
 <h2>Experience</h2>
-<div class="glass timeline">
-<div>
-<h4>Python Developer Intern – SkillVertex</h4>
-<p>Developed GUI calculator using Python & Tkinter.</p>
-</div>
-
-<div>
-<h4>Data Annotator – Innovative Sherpphere</h4>
-<p>Annotated large datasets for ML pipelines and quality validation.</p>
-</div>
-
-<div>
-<h4>Audit Intern – Pro-TEAM Solutions</h4>
-<p>Supported audit documentation and process improvement.</p>
-</div>
+<p>Python Developer Intern – SkillVertex</p>
+<p>Data Annotator – Innovative Sherpphere</p>
+<p>Audit Intern – Pro-TEAM Solutions</p>
 </div>
 </section>
 
@@ -325,7 +320,7 @@ delivering insights that support decision making.
 <li>Python Programming</li>
 <li>SQL Fundamentals</li>
 <li>Data Visualization using Tableau</li>
-<li>Deloitte Australia – Data Analytics Job Simulation (Forage)</li>
+<li>Deloitte Australia – Data Analytics Job Simulation</li>
 </ul>
 </div>
 </section>
@@ -337,34 +332,18 @@ delivering insights that support decision making.
 <p>Email: yogesharadhya8055@gmail.com</p>
 <p>Phone: +91 7204141822</p>
 <p>Location: Bangalore</p>
-
-<a href="https://www.linkedin.com/" class="btn">LinkedIn</a>
-<a href="#" class="btn">GitHub</a>
-
-<form action="mailto:yogesharadhya8055@gmail.com" method="post" enctype="text/plain">
-<br>
-<input type="text" placeholder="Your Name" required><br><br>
-<input type="email" placeholder="Your Email" required><br><br>
-<textarea placeholder="Message" required></textarea><br><br>
-<button class="btn">Send</button>
-</form>
 </div>
 </section>
 
 <footer>
-<p>© 2026 Yogesh L | Data Science Portfolio</p>
+<p>© 2026 Yogesh L</p>
 </footer>
 
 <button id="topBtn">Top</button>
 
 <script>
 /* Typing Animation */
-const roles=[
-"MCA Data Science Student",
-"Data Analyst",
-"Python Developer",
-"Machine Learning Enthusiast"
-];
+const roles=["MCA Data Science Student","Data Analyst","Python Developer","Machine Learning Enthusiast"];
 let i=0,j=0,isDeleting=false;
 function type(){
 let text=roles[i];
@@ -379,7 +358,7 @@ setTimeout(type,100);
 }
 type();
 
-/* Fade + Skill Animation */
+/* Fade + Skill animation */
 const faders=document.querySelectorAll(".fade");
 window.addEventListener("scroll",()=>{
 faders.forEach(el=>{
@@ -408,26 +387,21 @@ for(let i=0;i<70;i++){
 particles.push({
 x:Math.random()*canvas.width,
 y:Math.random()*canvas.height,
-vx:(Math.random()-0.5)*1,
-vy:(Math.random()-0.5)*1
+vx:(Math.random()-0.5),
+vy:(Math.random()-0.5)
 });
 }
 
 function animate(){
 ctx.clearRect(0,0,canvas.width,canvas.height);
-
 for(let p of particles){
 p.x+=p.vx;
 p.y+=p.vy;
-
 if(p.x<0||p.x>canvas.width)p.vx*=-1;
 if(p.y<0||p.y>canvas.height)p.vy*=-1;
-
 ctx.fillStyle="#00eaff";
 ctx.fillRect(p.x,p.y,2,2);
 }
-
-/* Connect lines */
 for(let i=0;i<particles.length;i++){
 for(let j=i+1;j<particles.length;j++){
 let dx=particles[i].x-particles[j].x;
@@ -442,7 +416,6 @@ ctx.stroke();
 }
 }
 }
-
 requestAnimationFrame(animate);
 }
 animate();
